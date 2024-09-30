@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,7 +11,24 @@ public class Main {
     }
 
     private static void example4Suits() {
+        //Подсчитаем, сколько в руке карт каждой масти
+        List<PlayingCard> hand = new ArrayList<>();
+        hand.add(new PlayingCard("черви", "дама"));
+        hand.add(new PlayingCard("пики", "дама"));
+        hand.add(new PlayingCard("черви", "десятка"));
+        hand.add(new PlayingCard("трефы", "дама"));
+        hand.add(new PlayingCard("черви", "туз"));
+        hand.add(new PlayingCard("пики", "двойка"));
+        hand.add(new PlayingCard("бубны", "двойка"));
+        
+        Map<String, Integer> table2 = new TreeMap<>();
+        for (PlayingCard card: hand){
+            String x = card.getSuit();
+            int counter = table2.getOrDefault(x, 0);
+            table2.put(x, 1+counter);
+        }
 
+        System.out.println("table2 = " + table2);
     }
 
 

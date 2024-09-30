@@ -22,4 +22,5 @@ public class PlayingCard {
     public String getRank() {
         return rank;
     }
+
 }
