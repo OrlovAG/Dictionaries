@@ -7,7 +7,37 @@ public class Main {
        // example1();
        // example2();
        // example3();
-        example4Suits();
+       // example4Suits();
+        example5CardsForPlayers();
+    }
+
+    private static void example5CardsForPlayers() {
+        Map<String, PlayingCard> cardMap1 = new TreeMap<>();
+        cardMap1.put("Вячеслав Т", new PlayingCard("трефы", "дама"));
+        cardMap1.put("Дмитрий", new PlayingCard("пики", "8"));
+        cardMap1.put("Вячеслав", new PlayingCard("трефы", "9"));
+        cardMap1.put("Алексей", new PlayingCard("трефы", "8"));
+        cardMap1.put("Юлия", new PlayingCard("бубны", "король"));
+        cardMap1.put("Анатолий", new PlayingCard("червы", "валет"));
+        cardMap1.put("Антон", new PlayingCard("червы", "8"));
+        cardMap1.put("Андрей", new PlayingCard("червы", "3"));
+        cardMap1.put("Фёдор", new PlayingCard("бубны", "8"));
+
+        System.out.println("cardMap1 = " + cardMap1);
+        String name1="Андрей";
+        String name2 = "Дмитрий";
+        System.out.println("карта "+name1+" это " + cardMap1.get(name1));
+        System.out.println("карта "+name2+" это " + cardMap1.get(name2));
+
+        //Найти имя игрока с бубновым  королем
+        PlayingCard cardX = new PlayingCard("бубны", "король");
+        for (Map.Entry<String, PlayingCard> player: cardMap1.entrySet())     {
+            //if (player.getValue().equals( cardX))
+            if (player.getValue().getSuit() == cardX.getSuit() &&
+                player.getValue().getRank() == cardX.getRank())
+                    System.out.println("ура, мы нашли игрока "+player.getKey());
+        }
+        System.out.println(cardMap1.containsValue(cardX));
     }
 
     private static void example4Suits() {
