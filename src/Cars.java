@@ -1,15 +1,31 @@
 import java.util.Objects;
 
-public class PlayingCard implements Comparable<PlayingCard>{
-   private String suit;    //масть
-   private String rank;    //достоинство
+public class Cars implements Comparable<Cars>{
+   private String model;    //model
+   private int year;    //year
+   private String color;
 
-    public PlayingCard(String suit, String rank) {
-        this.suit = suit;
-        this.rank = rank;
-    }
+   @Override
+   public int compareTo(Cars o) {
+      return 0;
+   }
 
-    @Override
+   public Cars(String model, int year, String color) {
+      this.model = model;
+      this.year = year;
+      this.color = color;
+
+   }
+
+   @Override
+   public String toString() {
+      return "Cars{" +
+              "model='" + model + '\'' +
+              ", year=" + year +
+              ", color='" + color + '\'' +
+              '}';
+   }
+   /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -55,5 +71,5 @@ public class PlayingCard implements Comparable<PlayingCard>{
         if(other.rank.equals("10")) return -1;
 
         return this.rank.compareTo(other.rank);
-    }
+    }*/
 }
