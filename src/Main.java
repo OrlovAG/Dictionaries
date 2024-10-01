@@ -8,11 +8,33 @@ public class Main {
        // example2();
        // example3();
        // example4Suits();
-        example5CardsForPlayers();
+       // example5CardsForPlayers();
+        example6PlayersForCards();
+    }
+
+    private static void example6PlayersForCards() {
+        Map<PlayingCard, String> cardMap2 = new HashMap<>();
+        cardMap2.put( new PlayingCard("трефы", "дама"), "Вячеслав Т");
+        cardMap2.put( new PlayingCard("бубны", "король"), "Юлия");
+        cardMap2.put( new PlayingCard("пики", "8"), "Дмитрий");
+
+        System.out.println("cardMap2 = " + cardMap2);
+        PlayingCard cardX = new PlayingCard("бубны", "король");
+        String nameY = cardMap2.get(cardX);
+
+        System.out.println("nameY = " + nameY);
+
+        Map<PlayingCard, String> cardMap3 = new TreeMap<>();
+        cardMap3.put( new PlayingCard("трефы", "8"), "Алексей");
+        cardMap3.put(new PlayingCard("червы", "8"), "Антон");
+        System.out.println("cardMap3 = " + cardMap3);
+        cardMap3.put( new PlayingCard("червы", "3"), "Андрей");
+        cardMap3.putAll(cardMap2);
+        System.out.println("cardMap3 = " + cardMap3);
     }
 
     private static void example5CardsForPlayers() {
-        Map<String, PlayingCard> cardMap1 = new TreeMap<>();
+        Map<String, PlayingCard> cardMap1 = new HashMap<>();
         cardMap1.put("Вячеслав Т", new PlayingCard("трефы", "дама"));
         cardMap1.put("Дмитрий", new PlayingCard("пики", "8"));
         cardMap1.put("Вячеслав", new PlayingCard("трефы", "9"));
@@ -38,6 +60,10 @@ public class Main {
                     System.out.println("ура, мы нашли игрока "+player.getKey());
         }
         System.out.println(cardMap1.containsValue(cardX));
+
+        for (Map.Entry<String, PlayingCard> player: cardMap1.entrySet()){
+            System.out.println("player = " + player.getKey() + " hash = "+player.getKey().hashCode());
+        }
     }
 
     private static void example4Suits() {
